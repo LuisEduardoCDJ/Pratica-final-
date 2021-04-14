@@ -1,0 +1,43 @@
+#Crear un Sistema que solicite el monto, cantidad de cuotas o (plazo) en meses, porcentaje de interes anual de un préstamo. Calcule la cuota mensual y muestre la tabla amortizada de los meses.
+"""
+
+1.    Usar ciclos, clases, metodos o funciones, condiciones, vectores o tablas, etc.
+
+2.    El Proyecto debe subirlo a un repositorio. Su suben archivos comprimido al repositorio del Proyecto automaticamente perderan 10 puntos.
+
+3.    Deben crear atributos con tipos de datos correspondiente a la información que van a tener.
+
+4.    Las variables deben tener nombres alusivos a su información.
+
+5.    Tratar de usar codigo legible y divider en subprogramas o funciones, cuando entiendan sea necesario.
+"""
+
+import replit
+def tabla_amortizada():
+  class datebase():
+    cantidad_dinero=float(input("Que cantidad necesitas\n ➔ "))
+    plazos_pagare=(int(input("Cuantos plazos ultilizara para pagar "+str(cantidad_dinero)+"\n ➔ ")))
+    interes_a_pagar=(float(input("Que cantidad de interes desea pagar\n ➔ ")))
+    replit.clear()
+    interes=interes_a_pagar*0.01
+
+    plazos_pagar_almacenada=cantidad_dinero*(((1+interes_a_pagar)** plazos_pagare)*interes_a_pagar)
+
+    plazos_pagar_almacenada=plazos_pagar_almacenada/(((1+interes_a_pagar)** plazos_pagare)-1)
+
+    monto=cantidad_dinero
+    
+    cuota_almacenada="{0:.2f}".format(plazos_pagar_almacenada)
+    print("\n                          卍 Tabla Amortizada 卍\n")
+    print("\nCantidad de Periodo:0║Plazos:0║Interes:0║Abono:0║Cantidad de dinero prestado:{0}\n".format(monto))
+
+    for x in range (1, plazos_pagare + 1):
+      interes_operable="{0:.2f}".format(float(monto)*float(interes_a_pagar))
+
+      pagado="{0:.2f}".format(float(cuota_almacenada)-float(interes_operable))
+
+      monto="{0:.2f}".format(float(monto)-float(pagado))
+      if(float(monto)<0):
+        saldo=" Has Completado El Prestamo"
+      print("Cantidad de Periodo:{0}║Plazos:{1}║Interes:{2}║Abono:{3}║Cantidad de dinero prestado:{4}\n".format(x,cuota_almacenada,interes_operable,pagado,monto))
+tabla_amortizada()

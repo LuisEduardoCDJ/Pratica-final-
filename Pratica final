@@ -14,7 +14,7 @@
 
 import replit
 def tabla_amortizada():
-  class datebase():
+  class informacion():
     cantidad_dinero=float(input("Que cantidad necesitas\n ➔ "))
     plazos_pagare=(int(input("Cuantos plazos ultilizara para pagar "+str(cantidad_dinero)+"\n ➔ ")))
     interes_a_pagar=(float(input("Que cantidad de interes desea pagar\n ➔ ")))
